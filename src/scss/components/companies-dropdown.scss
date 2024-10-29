@@ -1,0 +1,13 @@
+.companies-dropdown {
+    .dropdown-toggle {
+        text-decoration: none;
+        padding: 1rem 0.5rem;
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: black;
+
+        &:after {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+nav.navbar {
+    padding: 0;
+
+    .navbar-brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        aspect-ratio: 1;
+        background-color: var(--bs-primary);
+        // color: white;
+    }
+
+    .navbar-nav {
+        .nav-link {
+            text-transform: uppercase;
+            font-weight: bold;
+            // color: #7c8284;
+        }
+    }
+}
