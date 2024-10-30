@@ -1,5 +1,6 @@
 nav.navbar {
     padding: 0;
+    padding-right: 1rem;
 
     .navbar-brand {
         display: flex;
@@ -12,10 +13,23 @@ nav.navbar {
     }
 
     .navbar-nav {
+        gap: 1rem;
+
         .nav-link {
+            --bs-nav-link-padding-y: 0.25rem;
             text-transform: uppercase;
             font-weight: bold;
             color: #989fa2;
+            border-radius: 0.5rem;
+
+            &:hover {
+                color: #fff;
+            }
+
+            &.active {
+                background: white;
+                color: var(--bs-dark);
+            }
         }
     }
 }

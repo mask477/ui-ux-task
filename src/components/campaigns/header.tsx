@@ -1,5 +1,4 @@
 import { Search } from 'lucide-react'
-import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 import HeaderTabs from './header-tabs'
 

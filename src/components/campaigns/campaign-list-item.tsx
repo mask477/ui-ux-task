@@ -2,7 +2,6 @@ import { Badge, Card, CardBody, Col, Row } from 'react-bootstrap'
 import '@scss/components/campaigns-list-item.scss'
 import { Calendar, Ellipsis, Info, Zap } from 'lucide-react'
 import { CurrencyFormatter } from '@/utils/functions'
-import ContentLoader from 'react-content-loader'
 
 export default function CampaignListItem({
     campaign,
@@ -78,7 +77,13 @@ export default function CampaignListItem({
                     <Col sm={2}>
                         <div className="list-attribute">
                             {formattedAmount}
-                            <Ellipsis className="ms-2" color={'#acacac'} />
+                            <Ellipsis
+                                className="ms-2"
+                                color={'#acacac'}
+                                style={{
+                                    cursor: 'pointer',
+                                }}
+                            />
                         </div>
                     </Col>
                 </Row>
