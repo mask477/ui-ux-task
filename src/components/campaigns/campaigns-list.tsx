@@ -1,40 +1,58 @@
 import '@scss/components/campaigns-list.scss'
 import CampaignListItem from './campaign-list-item'
+import { Campaigns } from '@utils/constants'
+import { useEffect, useState } from 'react'
+import { Col, Row } from 'react-bootstrap'
+import CampaignListItemLoader from './campaing-list-item-loader'
 
 export default function CampaignsList() {
-    const list = [1, 2, 3, 4, 5]
+    const [loading, setLoading] = useState<boolean>(true)
+    const [campaigns, setCampaigns] = useState<CampaignType[]>([])
+
+    useEffect(() => {
+        setTimeout(() => {
+            setCampaigns(Campaigns)
+            setLoading(false)
+        }, 1500)
+    }, [])
 
     return (
         <div className="campaigns-list mt-4">
             <Header />
-            {list.map((item) => (
-                <CampaignListItem item={item} />
-            ))}
+            {loading
+                ? Array.from({ length: 10 }, (_, i) => i + 1).map((item) => (
+                      <div className="mb-2">
+                          <CampaignListItemLoader key={item} />
+                      </div>
+                  ))
+                : campaigns.map((campaign) => (
+                      <CampaignListItem campaign={campaign} key={campaign.id} />
+                  ))}
         </div>
     )
 }
 
 const Header = () => {
     return (
-        <div className="row header text-muted">
-            <div className="col-5">
+        <Row className="header text-muted mb-2 px-4">
+            <Col sm={5}>
                 <small>Campaign Name</small>
-            </div>
-            <div className="col-2">
+            </Col>
+            <Col sm={2}>
                 <small>Status</small>
-            </div>
-            <div className="col-1">
+            </Col>
+            <Col className="text-end">
                 <small>Recipients</small>
-            </div>
-            <div className="col-1">
+            </Col>
+            <Col className="text-end">
                 <small>Results</small>
-            </div>
-            <div className="col-1">
+            </Col>
+            <Col className="text-end">
                 <small>Leads</small>
-            </div>
-            <div className="col-2">
+            </Col>
+            <Col sm={2} className="text-end">
                 <small>Amount Spent</small>
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
